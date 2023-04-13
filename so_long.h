@@ -32,6 +32,13 @@ typedef enum e_tiletype
     FOLLOWER = 'F',
 }   t_tiletype;
 
+typedef enum e_enemytype
+{
+    HORIZONTAL = 'H',
+    VERTICAL = 'V',
+    FOLLOWER = 'F',
+}   t_enemytype;
+
 //Struct for tiles
 typedef struct s_tile
 {
