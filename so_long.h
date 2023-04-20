@@ -1,12 +1,38 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <mlx.h>
-# include "libft/libft.h"
+# include "minilibx/mlx.h"
 # include "gnl/get_next_line.h"
 # include <stdio.h>
+# include <fcntl.h>
+# include <errno.h>
+# include <string.h>
+# include <unistd.h>
+//look up libraries
 
-# define IMG_SIZE 64
+typedef struct t_game
+{
+    int fd;
+    int mapheight;
+    int mapwidth;
+    int playercount;
+    int columncount;
+    int exitcount;
+    int x_axis;
+    int y_axis;
+    int counter;
+    int collectablecount;
+
+    char    **map;
+
+    void    *floor;
+    void    *barrier;
+    void    *player;
+    void    *exit;
+    void    *collectable;
+    void    *mlxpointer;
+    void    *winpointer;
+}   t_game;
 
 typedef enum e_bool
 {
@@ -14,41 +40,16 @@ typedef enum e_bool
     FALSE = 0,
 }   t_bool;
 
-typedef struct s_vector
+/*typedef struct s_vector
 {
     int x;
     int y;
 }   t_vector;
+*/
 
-//Tile types
-typedef enum e_tiletype
-{
-    EMPTY = '0',
-    WALL = '1',
-    COLLECTABLE = 'C',
-    PLAYER = 'P',
-    EXIT = 'E',
-    ENEMY = 'M',
-    FOLLOWER = 'F',
-}   t_tiletype;
+int  get_map_width(char *str);
+int	add_line(t_game *game, char *line);
+int	read_map(t_game *game, char **argv);
 
-typedef enum e_enemytype
-{
-    HORIZONTAL = 'H',
-    VERTICAL = 'V',
-    FOLLOWER = 'F',
-}   t_enemytype;
-
-//Struct for tiles
-typedef struct s_tile
-{
-    t_tiletype  type;
-    t_tiletype  orig_type;
-    t_vector    position;
-    struct s_tile   *up;
-    struct s_tile   *down;
-    struct s_tile   *left;
-    struct s_tile   *right;
-}   t_tile;
 
 #endif
