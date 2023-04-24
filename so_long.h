@@ -50,6 +50,12 @@ typedef enum e_bool
 int  get_map_width(char *str);
 int	add_line(t_game *game, char *line);
 int	read_map(t_game *game, char **argv);
+void	place_player(t_game *game, int height, int width);
+void	place_collectable(t_game *game, int height, int width);
+void    put_images(t_game *game);
+void	graphics(t_game *game, int height);
+void	put_graphics(t_game *game);
+
 
 
 #endif
