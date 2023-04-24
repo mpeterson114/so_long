@@ -52,5 +52,8 @@ int main(int argc, char **argv)
 	read_map(game, argv);
 	/*errors fxn*/
 	game->mlxpointer = mlx_init();
-	game->winpointer = mlx_new_window(game->mlxpointer, (game->mapwidth * 40), (game->mapheight * 40), "solong");
+	game->winpointer = mlx_new_window(game->mlxpointer, (game->mapwidth * 40), (game->mapheight * 40), "so_long");
+	put_images(game);
+	put_graphics(game);
+	mlx_loop(game->mlxpointer);
 }

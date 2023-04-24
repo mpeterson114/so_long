@@ -3,6 +3,7 @@ CYAN =			\033[0;96m
 YELLOW =		\033[0;93m
 RED =			\033[0;91m
 GREEN =			\033[0;92m
+GRAY =			\033[0;90m
 
 NAME = so_long
 
@@ -11,15 +12,16 @@ MINILIBX = minilibx/
 
 SRCS = main.c \
 	map.c \
+	images.c \
 	gnl/get_next_line.c \
 	gnl/get_next_line_utils.c \
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 REMOVE = rm -f
 
 %.o: %.c
-	@echo "$(YELLOW) Compiling	$(GREEN)$<"
+	@echo "$(YELLOW) Compiling	$(GRAY)$<"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 OBJS = $(SRCS:.c=.o)
@@ -33,13 +35,13 @@ $(NAME): $(OBJS)
 
 clean:
 		@$(REMOVE) $(OBJS)
-		@echo "\n$(BLUE) Objects cleaned successfully"
+		@echo "\n$(CYAN) Objects cleaned successfully"
 
 fclean: 
 		make clean -C $(MINILIBX)
 		@$(REMOVE) $(NAME)
 		@$(REMOVE) $(OBJS)
-		@echo "\n$(BLUE)Objects and executables deleted successfully"
+		@echo "\n$(ORANGE)Objects and executables deleted successfully"
 
 re:	fclean all
 
