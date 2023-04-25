@@ -21,7 +21,8 @@ void    put_images(t_game *game)
 
 	game->player = mlx_xpm_file_to_image(game->mlxpointer, "jumper.xpm", &x, &y);
 	game->collectable = mlx_xpm_file_to_image(game->mlxpointer, "shrimp.xpm", &x, &y);
-	game->barrier = mlx_xpm_file_to_image(game->mlxpointer, "blank.xpm", &x, &y);
+	game->barrier = mlx_xpm_file_to_image(game->mlxpointer, "snowtile.xpm", &x, &y);
+	game->exit = mlx_xpm_file_to_image(game->mlxpointer, "hextiles.xpm", &x, &y);
 }
 
 void	graphics(t_game *game, int height)
@@ -39,6 +40,8 @@ void	graphics(t_game *game, int height)
 				place_collectable(game, height, width);
 			if (game->map[height][width] == '1')
 				mlx_put_image_to_window(game->mlxpointer, game->winpointer, game->barrier, width * 50, height * 50);
+			if (game->map[height][width] == 'E')
+				mlx_put_image_to_window(game->mlxpointer, game->winpointer, game->exit, width * 50, height * 50);
 			width++;
 		}
 		height++;
