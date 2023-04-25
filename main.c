@@ -55,5 +55,6 @@ int main(int argc, char **argv)
 	game->winpointer = mlx_new_window(game->mlxpointer, (game->mapwidth * 50), (game->mapheight * 50), "so_long");
 	put_images(game);
 	put_graphics(game);
+	mlx_key_hook(game->winpointer, controls, game);
 	mlx_loop(game->mlxpointer);
 }
