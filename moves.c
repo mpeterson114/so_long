@@ -96,7 +96,7 @@ int controls(t_game *game, int command)
     int check;
 
     if (command == 53)
-        return (0);
+        exit_point(game);
     if (command == 13)
         check = key_up_down(game, command);
     if (command == 1)
