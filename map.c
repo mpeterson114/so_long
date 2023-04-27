@@ -52,7 +52,7 @@ int	read_map(t_game *game, char **argv)
 	}
 	close(game->fd);
 	game->mapwidth = get_map_width(game->map[0]);
-	printf("%d\n", game->mapwidth);
-	printf("%d\n", game->mapheight);
+	//printf("%d\n", game->mapwidth);
+	//printf("%d\n", game->mapheight);
 	return (1);
 }

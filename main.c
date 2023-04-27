@@ -39,7 +39,6 @@ int	exit_point(t_game *game)
 int main(int argc, char **argv)
 {
 	t_game *game;
-	//int	width = get_map_width(argv[1]);
 
 	if (argc != 2)
 		return (0);
@@ -50,6 +49,7 @@ int main(int argc, char **argv)
 	//printf("%d\n", width);
 	//add_line(game, argv[1]);
 	read_map(game, argv);
+	printf("%d\n", game->mapheight);
 	/*errors fxn*/
 	game->mlxpointer = mlx_init();
 	game->winpointer = mlx_new_window(game->mlxpointer, (game->mapwidth * 50), (game->mapheight * 50), "so_long");
