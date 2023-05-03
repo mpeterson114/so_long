@@ -9,7 +9,7 @@ static int  correct_move(t_game *game, int x, int y)
         printf("\nYou Won!\n");
         exit_point(game);
     }
-    if  (game->map[y][x] == '0')
+    if (game->map[y][x] == '0')
     {
         game->map[y][x] = 'P';
         game->x_axis = x;
@@ -27,14 +27,12 @@ static int  correct_move(t_game *game, int x, int y)
     return (1);
 }
 
-static int  key_up_down(t_game *game, int keycode)
+static int  key_up_down(t_game *game, int keycode, int x, int y)
 {
-    int x;
-    int y;
     int checker;
 
-    x = game->x_axis;
-    y = game->y_axis;
+    //x = game->x_axis;
+    //y = game->y_axis;
     if (keycode == 13)
     {
         y--;
@@ -45,7 +43,7 @@ static int  key_up_down(t_game *game, int keycode)
             return (0);
         game->map[y + 1][x] = '0'; 
     }
-    if (keycode == 1)
+    else if (keycode == 1)
     {
         y++;
         if (game->map[y][x] == '1')
@@ -55,18 +53,16 @@ static int  key_up_down(t_game *game, int keycode)
             return (0);
         game->map[y - 1][x] = '0'; 
     }
-    printf("Moves taken:%i\n", game->counter);
+    printf("Moves taken: %i\n", game->counter);
     return (1);
 }
 
-static int  key_left_right(t_game *game, int keycode)
+static int  key_left_right(t_game *game, int keycode, int x, int y)
 {
-    int x;
-    int y;
     int checker;
 
-    x = game->x_axis;
-    y = game->y_axis;
+    //x = game->x_axis;
+    //y = game->y_axis;
     if (keycode == 0)
     {
         x--;
@@ -77,7 +73,7 @@ static int  key_left_right(t_game *game, int keycode)
             return (0);
         game->map[y][x + 1] = '0'; 
     }
-    if (keycode == 2)
+    else if (keycode == 2)
     {
         x++;
         if (game->map[y][x] == '1')
@@ -87,24 +83,28 @@ static int  key_left_right(t_game *game, int keycode)
             return (0);
         game->map[y][x - 1] = '0'; 
     }
-    printf("Moves taken:%i\n", game->counter);
+    printf("Moves taken: %i\n", game->counter);
     return (1);
 }
 
 int controls(t_game *game, int command)
 {
     int check;
+    int x;
+    int y;
 
+    x = game->x_axis;
+    y = game->y_axis;
     if (command == 53)
         exit_point(game);
     if (command == 13)
-        check = key_up_down(game, command);
+        check = key_up_down(game, command, x, y);
     if (command == 1)
-        check = key_up_down(game, command);
+        check = key_up_down(game, command, x, y);
     if (command == 0)
-        check = key_left_right(game, command);
+        check = key_left_right(game, command, x, y);
     if (command == 2)
-        check = key_left_right(game, command);
+        check = key_left_right(game, command, x, y);
     if (check)
         put_graphics(game);
     return (1);

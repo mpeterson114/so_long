@@ -13,10 +13,11 @@ MINILIBX = minilibx/
 SRCS = main.c \
 	map.c \
 	images.c \
+	errors.c \
+	moves.c \
 	gnl/get_next_line.c \
 	gnl/get_next_line_utils.c \
-	moves.c \
-
+	
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 REMOVE = rm -f

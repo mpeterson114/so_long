@@ -41,20 +41,24 @@ int main(int argc, char **argv)
 	t_game *game;
 
 	if (argc != 2)
-		return (0);
+	{
+		printf("\nError: Incorrect number of arguments\n");
+		exit(1);
+	}
 	game = (t_game *)malloc(sizeof(t_game));
-	if (!game)
+	if (game == NULL)
 		return (0);
 	init_game_struct(game);
 	//printf("%d\n", width);
 	//add_line(game, argv[1]);
 	read_map(game, argv);
-	printf("%d\n", game->mapheight);
-	/*errors fxn*/
+	//printf("%d\n", game->mapheight);
+	error_check(game);
 	game->mlxpointer = mlx_init();
 	game->winpointer = mlx_new_window(game->mlxpointer, (game->mapwidth * 50), (game->mapheight * 50), "so_long");
 	put_images(game);
 	put_graphics(game);
 	mlx_key_hook(game->winpointer, controls, game);
+	mlx_hook(game->winpointer, 17, 0, (void *)exit, 0);
 	mlx_loop(game->mlxpointer);
 }
