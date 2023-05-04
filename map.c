@@ -21,7 +21,7 @@ int	add_line(t_game *game, char *line)
 		return (0);
 	i = 0;
 	game->mapheight++;
-	temp = (char **)malloc(sizeof(t_game) * (game->mapheight + 1));
+	temp = (char **)malloc(sizeof(char *) * (game->mapheight + 1));
 	temp[game->mapheight] = NULL;
 	while (i < game->mapheight - 1)
 	{

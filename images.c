@@ -19,9 +19,9 @@ void    put_images(t_game *game)
     int	x;
 	int	y;
 
-	game->player = mlx_xpm_file_to_image(game->mlxpointer, "jumper.xpm", &x, &y);
+	game->player = mlx_xpm_file_to_image(game->mlxpointer, "foodtruck.xpm", &x, &y);
 	game->collectable = mlx_xpm_file_to_image(game->mlxpointer, "shrimp.xpm", &x, &y);
-	game->barrier = mlx_xpm_file_to_image(game->mlxpointer, "snowtile.xpm", &x, &y);
+	game->barrier = mlx_xpm_file_to_image(game->mlxpointer, "blank.xpm", &x, &y);
 	game->exit = mlx_xpm_file_to_image(game->mlxpointer, "hextiles.xpm", &x, &y);
 }
 

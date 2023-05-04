@@ -80,8 +80,6 @@ void    error_check(t_game *game)
 
     verticalwalls = vertical_walls(game);
     horizontalwalls = horizontal_walls(game);
-    printf("%d\n", verticalwalls);
-    printf("%d\n", horizontalwalls);
     if (!verticalwalls || !horizontalwalls)
     {
         printf("\nError\nMap missing walls\n");
