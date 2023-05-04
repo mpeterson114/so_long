@@ -2,6 +2,7 @@
 # define SO_LONG_H
 
 # include "minilibx/mlx.h"
+# include <mlx.h>
 # include "gnl/get_next_line.h"
 # include <stdio.h>
 # include <fcntl.h>
@@ -58,7 +59,7 @@ void    put_images(t_game *game);
 void	graphics(t_game *game, int height);
 void	put_graphics(t_game *game);
 int	exit_point(t_game *game);
-int controls(t_game *game, int command);
+int controls(int command, t_game *game);
 
 
 
