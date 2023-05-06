@@ -37,9 +37,10 @@ static void count_checker(t_game *game, int height, int width)
     game->map[height][width] != 'P' &&
     game->map[height][width] != 'C' &&
     game->map[height][width] != 'E' &&
+    game->map[height][width] != 'H' &&
     game->map[height][width] != '\n')
     {
-        printf("\nError here: %c\n", game->map[height][width]);
+        printf("\n\033[1;31mError here: %c\033[0m\n", game->map[height][width]);
         exit_point(game);
     }
     if (game->map[height][width] == 'C')
@@ -68,7 +69,7 @@ void    character_valid(t_game *game)
     }
     if (!(game->playercount = 1 && game->columncount > 1 && game->exitcount == 1))
     {
-        printf("\nError\nEither player, exit or collectable issue\n");
+        printf("\n\033[1;31mError, either player, exit or collectable issue\033[0m\n");
         exit_point(game);
     }
 }
@@ -82,7 +83,7 @@ void    error_check(t_game *game)
     horizontalwalls = horizontal_walls(game);
     if (!verticalwalls || !horizontalwalls)
     {
-        printf("\nError\nMap missing walls\n");
+        printf("\n\033[1;31mError, Map is missing walls\033[0m\n");
         exit_point(game);
     }
     character_valid(game);

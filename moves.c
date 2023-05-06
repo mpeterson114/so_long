@@ -6,7 +6,7 @@ static int  correct_move(t_game *game, int x, int y)
     {
         if (game->collectablecount != 0)
             return (0);
-        printf("\nYou Won!\n");
+        printf("\n\033[1;32mYou Won!\033[0m\n");
         exit_point(game);
     }
     if (game->map[y][x] == '0')
@@ -23,6 +23,11 @@ static int  correct_move(t_game *game, int x, int y)
         game->y_axis = y;
         game->collectablecount--;
         game->counter++;
+    }
+    if (game->map[y][x] == 'H')
+    {
+        printf("\n\033[1;31mGAME OVER, Drive better next time...\033[0m\n");
+        exit_point(game);
     }
     return (1);
 }
@@ -56,6 +61,10 @@ static int  key_up_down(t_game *game, int keycode)
         game->map[y - 1][x] = '0'; 
     }
     printf("Moves taken: %i\n", game->counter);
+    printf("Collectables count: %i\n", game->collectablecount);
+    printf("%d\n", game->x_axis);
+    printf("%d\n", game->y_axis);
+    printf("%c\n", game->map[y][x]);
     return (1);
 }
 
@@ -88,6 +97,9 @@ static int  key_left_right(t_game *game, int keycode)
         game->map[y][x - 1] = '0'; 
     }
     printf("Moves taken: %i\n", game->counter);
+    printf("%d\n", game->x_axis);
+    printf("%d\n", game->y_axis);
+    printf("%c\n", game->map[y][x]);
     return (1);
 }
 

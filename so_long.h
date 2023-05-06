@@ -2,7 +2,6 @@
 # define SO_LONG_H
 
 # include "minilibx/mlx.h"
-# include <mlx.h>
 # include "gnl/get_next_line.h"
 # include <stdio.h>
 # include <fcntl.h>
@@ -31,6 +30,7 @@ typedef struct t_game
     void    *player;
     void    *exit;
     void    *collectable;
+    void    *healthfood;
     void    *mlxpointer;
     void    *winpointer;
 }   t_game;
@@ -56,7 +56,7 @@ void    error_check(t_game *game);
 void	place_player(t_game *game, int height, int width);
 void	place_collectable(t_game *game, int height, int width);
 void    put_images(t_game *game);
-void	graphics(t_game *game, int height);
+void    graphics(t_game *game, int height);
 void	put_graphics(t_game *game);
 int	exit_point(t_game *game);
 int controls(int command, t_game *game);

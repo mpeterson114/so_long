@@ -18,6 +18,7 @@ void	init_game_struct(t_game *game)
 	game->player = 0;
 	game->exit = 0;
 	game->collectable = 0;
+	game->healthfood = 0;
 	game->mlxpointer = 0;
 	game->winpointer = 0;
 }

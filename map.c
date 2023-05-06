@@ -43,16 +43,22 @@ int	read_map(t_game *game, char **argv)
 	game->fd = open(argv[1], O_RDONLY);
 	//printf("%d\n", game->fd);
 	if (game->fd < 0)
-		return (0);
+	{
+		printf("\n\033[1;31mError, unable to open map\033[0m\n");
+		exit_point(game);
+	}
 	while (TRUE)
 	{
 		mapreader = get_next_line(game->fd);
 		if (!(add_line(game, mapreader)))
 			break ;
 	}
-	close(game->fd);
+	if (game->mapheight == 0 && game->mapwidth == 0)
+	{
+		printf("\nError, map is empty\n");
+		exit_point(game);
+	}
 	game->mapwidth = get_map_width(game->map[0]);
-	//printf("%d\n", game->mapwidth);
-	//printf("%d\n", game->mapheight);
+	close(game->fd);
 	return (1);
 }
