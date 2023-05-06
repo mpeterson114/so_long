@@ -41,8 +41,8 @@ clean:
 
 fclean: 
 		make clean -C $(MINILIBX)
-		@$(REMOVE) $(NAME)
-		@$(REMOVE) $(OBJS)
+		$(REMOVE) $(NAME)
+		$(REMOVE) $(OBJS)
 		@echo "\n$(ORANGE)Objects and executables deleted successfully"
 
 re:	fclean all
