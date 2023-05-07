@@ -37,14 +37,14 @@ static void count_checker(t_game *game, int height, int width)
     game->map[height][width] != 'P' &&
     game->map[height][width] != 'C' &&
     game->map[height][width] != 'E' &&
-    game->map[height][width] != 'H' &&
+    game->map[height][width] != 'B' &&
     game->map[height][width] != '\n')
     {
         printf("\n\033[1;31mError here: %c\033[0m\n", game->map[height][width]);
         exit_point(game);
     }
     if (game->map[height][width] == 'C')
-        game->columncount++;
+        game->collcheck++;
     else if (game->map[height][width] == 'P')
         game->playercount++;
     else if (game->map[height][width] == 'E')
@@ -67,9 +67,9 @@ void    character_valid(t_game *game)
         }
         height++;
     }
-    if (!(game->playercount = 1 && game->columncount > 1 && game->exitcount == 1))
+    if (!(game->playercount = 1 && game->collcheck > 1 && game->exitcount == 1))
     {
-        printf("\n\033[1;31mError, either player, exit or collectable issue\033[0m\n");
+        printf("\n\033[1;31mError, wrong number of players, exits or collectables\033[0m\n");
         exit_point(game);
     }
 }

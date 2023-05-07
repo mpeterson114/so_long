@@ -6,7 +6,7 @@ void	init_game_struct(t_game *game)
 	game->mapheight = 0;
 	game->mapwidth = 0;
 	game->playercount = 0;
-	game->columncount = 0;
+	game->collcheck = 0;
 	game->exitcount = 0;
 	game->x_axis = 0;
 	game->y_axis = 0;
@@ -14,11 +14,11 @@ void	init_game_struct(t_game *game)
 	game->collectablecount = 0;
 	game->map = NULL;
 	game->floor = 0;
-	game->barrier = 0;
+	game->wall = 0;
 	game->player = 0;
 	game->exit = 0;
 	game->collectable = 0;
-	game->healthfood = 0;
+	game->blocker = 0;
 	game->mlxpointer = 0;
 	game->winpointer = 0;
 }
@@ -43,17 +43,14 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		printf("\nError: Incorrect number of arguments\n");
+		printf("\nError: Expected one parameter\n");
 		exit(1);
 	}
 	game = (t_game *)malloc(sizeof(t_game));
 	if (game == NULL)
 		return (0);
 	init_game_struct(game);
-	//printf("%d\n", width);
-	//add_line(game, argv[1]);
 	read_map(game, argv);
-	//printf("%d\n", game->mapheight);
 	error_check(game);
 	game->mlxpointer = mlx_init();
 	game->winpointer = mlx_new_window(game->mlxpointer, (game->mapwidth * 50), (game->mapheight * 50), "so_long");

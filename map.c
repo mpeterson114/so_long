@@ -55,7 +55,7 @@ int	read_map(t_game *game, char **argv)
 	}
 	if (game->mapheight == 0 && game->mapwidth == 0)
 	{
-		printf("\nError, map is empty\n");
+		printf("\n\033[1;31mError, map is empty\033[0m\n");
 		exit_point(game);
 	}
 	game->mapwidth = get_map_width(game->map[0]);
