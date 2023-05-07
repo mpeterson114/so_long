@@ -16,7 +16,7 @@ typedef struct t_game
     int mapheight;
     int mapwidth;
     int playercount;
-    int columncount;
+    int collcheck;
     int exitcount;
     int x_axis;
     int y_axis;
@@ -26,11 +26,11 @@ typedef struct t_game
     char    **map;
 
     void    *floor;
-    void    *barrier;
+    void    *wall;
     void    *player;
     void    *exit;
     void    *collectable;
-    void    *healthfood;
+    void    *blocker;
     void    *mlxpointer;
     void    *winpointer;
 }   t_game;
