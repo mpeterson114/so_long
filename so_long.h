@@ -60,6 +60,7 @@ void    graphics(t_game *game, int height);
 void	put_graphics(t_game *game);
 int	exit_point(t_game *game);
 int controls(int command, t_game *game);
+void check_rectangle(t_game *game);
 
 
 

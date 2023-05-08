@@ -17,6 +17,7 @@ SRCS = main.c \
 	moves.c \
 	gnl/get_next_line.c \
 	gnl/get_next_line_utils.c \
+	#errors_utils.c \
 	
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror

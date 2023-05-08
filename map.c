@@ -28,7 +28,6 @@ int	add_line(t_game *game, char *line)
 		temp[i] = game->map[i];
 		i++;
 	}
-	//printf("%d\n", game->mapheight);
 	temp[i] = line;
 	if (game->map)
 		free(game->map);
