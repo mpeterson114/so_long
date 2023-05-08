@@ -20,9 +20,18 @@ static int  vertical_walls(t_game *game)
     int y;
 
     x = game->mapwidth;
+    //printf("%d\n", x);
+    //printf("%d\n", game->mapheight);
     y = 0;
+    //printf("%d\n", (int) ft_strlen(game->map[y]) - 1);
     while (y < game->mapheight)
     {
+        if (((int) ft_strlen(game->map[y]) - 1) != x)
+        {
+            printf("\n\033[1;31mError: Map must be a rectangle\033[0m\n");
+            exit_point(game);
+        }
+        //printf("%d\n", y);
         if (!(game->map[y][0] == '1' && game->map[y][x - 1] == '1'))
             return (0);
         y++;
@@ -67,9 +76,10 @@ void    character_valid(t_game *game)
         }
         height++;
     }
-    if (!(game->playercount = 1 && game->collcheck > 1 && game->exitcount == 1))
+
+    if (!(game->playercount = 1 && game->collcheck >= 1 && game->exitcount == 1))
     {
-        printf("\n\033[1;31mError, wrong number of players, exits or collectables\033[0m\n");
+        printf("\n\033[1;31mError: wrong number of players, exits or collectables\033[0m\n");
         exit_point(game);
     }
 }
@@ -83,7 +93,7 @@ void    error_check(t_game *game)
     horizontalwalls = horizontal_walls(game);
     if (!verticalwalls || !horizontalwalls)
     {
-        printf("\n\033[1;31mError, Map is missing walls\033[0m\n");
+        printf("\n\033[1;31mError: Map is missing walls\033[0m\n");
         exit_point(game);
     }
     character_valid(game);

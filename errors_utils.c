@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-static void check_rectangle(t_game *game)
+/*void check_rectangle(t_game *game)
 {
     int i;
     int w;
@@ -18,4 +18,4 @@ static void check_rectangle(t_game *game)
         game->mapwidth = get_map_width(game->map[i]);
         i++;
     }
-}
+}*/

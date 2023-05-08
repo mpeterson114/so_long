@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		printf("\nError: Expected one parameter\n");
+		printf("\nError: Expected one argument\n");
 		exit(1);
 	}
 	game = (t_game *)malloc(sizeof(t_game));
@@ -52,6 +52,7 @@ int main(int argc, char **argv)
 	init_game_struct(game);
 	read_map(game, argv);
 	error_check(game);
+	//check_rectangle(game);
 	game->mlxpointer = mlx_init();
 	game->winpointer = mlx_new_window(game->mlxpointer, (game->mapwidth * 50), (game->mapheight * 50), "so_long");
 	put_images(game);
