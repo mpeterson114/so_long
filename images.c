@@ -19,12 +19,12 @@ void    put_images(t_game *game)
     int	x;
 	int	y;
 
-	game->player = mlx_xpm_file_to_image(game->mlxpointer, "foodtruck.xpm", &x, &y);
-	game->collectable = mlx_xpm_file_to_image(game->mlxpointer, "pretzel.xpm", &x, &y);
-	game->blocker = mlx_xpm_file_to_image(game->mlxpointer, "cone.xpm", &x, &y);
-	game->wall = mlx_xpm_file_to_image(game->mlxpointer, "grass2.xpm", &x, &y);
-	game->exit = mlx_xpm_file_to_image(game->mlxpointer, "fair.xpm", &x, &y);
-	game->floor = mlx_xpm_file_to_image(game->mlxpointer, "floorblank.xpm", &x, &y);
+	game->player = mlx_xpm_file_to_image(game->mlxpointer, "graphics/foodtruck.xpm", &x, &y);
+	game->collectable = mlx_xpm_file_to_image(game->mlxpointer, "graphics/pretzel.xpm", &x, &y);
+	game->blocker = mlx_xpm_file_to_image(game->mlxpointer, "graphics/cone.xpm", &x, &y);
+	game->wall = mlx_xpm_file_to_image(game->mlxpointer, "graphics/grass2.xpm", &x, &y);
+	game->exit = mlx_xpm_file_to_image(game->mlxpointer, "graphics/fair.xpm", &x, &y);
+	game->floor = mlx_xpm_file_to_image(game->mlxpointer, "graphics/floorblank.xpm", &x, &y);
 }
 
 void	graphics(t_game *game, int height)

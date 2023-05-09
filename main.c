@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		printf("\nError: Expected one argument\n");
+		printf("\n\033[1;31mError: Expected one argument\033[0m\n");
 		exit(1);
 	}
 	game = (t_game *)malloc(sizeof(t_game));

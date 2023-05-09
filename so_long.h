@@ -10,7 +10,7 @@
 # include <unistd.h>
 //look up libraries
 
-typedef struct t_game
+typedef struct s_game
 {
     int fd;
     int mapheight;
