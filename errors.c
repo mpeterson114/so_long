@@ -46,7 +46,7 @@ static void count_checker(t_game *game, int height, int width)
     game->map[height][width] != 'P' &&
     game->map[height][width] != 'C' &&
     game->map[height][width] != 'E' &&
-    game->map[height][width] != 'B' &&
+    game->map[height][width] != 'B' &&        /*will need to be moved to bonus file*/
     game->map[height][width] != '\n')
     {
         printf("\n\033[1;31mError here: %c\033[0m\n", game->map[height][width]);
