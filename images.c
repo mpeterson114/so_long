@@ -16,15 +16,12 @@ void	place_collectable(t_game *game, int height, int width)
 
 void    put_images(t_game *game)
 {
-    int	x;
-	int	y;
-
-	game->player = mlx_xpm_file_to_image(game->mlxpointer, "graphics/foodtruck.xpm", &x, &y);
-	game->collectable = mlx_xpm_file_to_image(game->mlxpointer, "graphics/pretzel.xpm", &x, &y);
-	game->blocker = mlx_xpm_file_to_image(game->mlxpointer, "graphics/cone.xpm", &x, &y);
-	game->wall = mlx_xpm_file_to_image(game->mlxpointer, "graphics/grass2.xpm", &x, &y);
-	game->exit = mlx_xpm_file_to_image(game->mlxpointer, "graphics/fair.xpm", &x, &y);
-	game->floor = mlx_xpm_file_to_image(game->mlxpointer, "graphics/floorblank.xpm", &x, &y);
+	game->player = xpm_check(game, "graphics/foodtruck.xpm");
+	game->collectable = xpm_check(game, "graphics/pretzel.xpm");
+	game->blocker = xpm_check(game, "graphics/cone.xpm");
+	game->wall = xpm_check(game, "graphics/grass2.xpm");
+	game->exit = xpm_check(game, "graphics/fair.xpm");
+	game->floor = xpm_check(game, "graphics/floorblank.xpm");
 }
 
 void	graphics(t_game *game, int height)

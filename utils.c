@@ -1,0 +1,66 @@
+#include "so_long.h"
+
+/*void check_rectangle(t_game *game)
+{
+    int i;
+    int w;
+
+    i = 1;
+    game->mapwidth = get_map_width(game->map[0]);
+    while (game->map[i])
+    {
+        w = get_map_width(game->map[i]);
+        if (w != game->mapwidth)
+        {
+            printf("\n\033[1;31mError: Map must be a rectangle\033[0m\n");
+            exit_point(game);
+        }
+        game->mapwidth = get_map_width(game->map[i]);
+        i++;
+    }
+}*/
+
+char	*ft_strrchr(const char *s, int c)
+{
+	int	length;
+
+	length = ft_strlen(s);
+	while (length >= 0)
+	{
+		if ((unsigned char)s[length] == (unsigned char)c)
+			return ((char *)s + length);
+		length--;
+	}
+	return (0);
+}
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t			i;
+
+	i = 0;
+	if (n == 0 || (!s1 && !s2))
+	{
+		return (0);
+	}
+	while (i < n -1 && (s1[i] == s2[i]) && s1[i] != '\0')
+	{
+		i++;
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+
+void	*xpm_check(t_game *game, char *str)
+{
+	void *img;
+	int pix;
+
+	pix = 50;
+	img = mlx_xpm_file_to_image(game->mlxpointer, str, &pix, &pix);
+	if (!img)
+	{
+		printf("\n\033[1;31mError: .xpm issue\033[0m\n");
+		exit_point(game);
+	}
+	return(img);
+}

@@ -61,6 +61,10 @@ void	put_graphics(t_game *game);
 int	exit_point(t_game *game);
 int controls(int command, t_game *game);
 void check_rectangle(t_game *game);
+char	*ft_strrchr(const char *s, int c);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
+void    check_extension(char **argv);
+void	*xpm_check(t_game *game, char *str);
 
 
 

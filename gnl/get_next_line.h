@@ -22,7 +22,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
-size_t	ft_strlen(char *s);
+size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char *line1, char *buff);
 char	*ft_strchr(char *s, int c);
 char	*ft_line(char *str);
