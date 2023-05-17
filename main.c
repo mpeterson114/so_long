@@ -59,5 +59,6 @@ int main(int argc, char **argv)
 	put_graphics(game);
 	mlx_key_hook(game->winpointer, controls, game);
 	mlx_hook(game->winpointer, 17, 0, (void *)exit, 0);
+	system("leaks so_long");
 	mlx_loop(game->mlxpointer);
 }
