@@ -64,3 +64,28 @@ void	*xpm_check(t_game *game, char *str)
 	}
 	return(img);
 }
+
+void	fill_map_copy(t_game *game)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < game->mapheight)
+	{
+		game->map_copy[y] = (char *)malloc(sizeof(char) * game->mapwidth);
+		y++;
+	}
+	//printf("%s\n", game->map_copy[y]);
+	y = 0;
+	while (y < game->mapheight)
+	{
+		x = 0;
+		while(x < game->mapwidth)
+		{
+			game->map_copy[y][x] = game->map[y][x];
+			x++;
+		}
+		y++;
+	}
+}
