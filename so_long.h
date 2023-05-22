@@ -24,6 +24,7 @@ typedef struct s_game
     int collectablecount;
 
     char    **map;
+    char    **map_copy;
 
     void    *floor;
     void    *wall;
@@ -65,6 +66,8 @@ char	*ft_strrchr(const char *s, int c);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 void    check_extension(char **argv);
 void	*xpm_check(t_game *game, char *str);
+void	fill_map_copy(t_game *game);
+char	**ft_split(const char *s, char c);
 
 
 

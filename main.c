@@ -13,6 +13,7 @@ void	init_game_struct(t_game *game)
 	game->counter = 0;
 	game->collectablecount = 0;
 	game->map = NULL;
+	game->map_copy = NULL;
 	game->floor = 0;
 	game->wall = 0;
 	game->player = 0;
@@ -40,6 +41,8 @@ int	exit_point(t_game *game)
 int main(int argc, char **argv)
 {
 	t_game *game;
+	//int y = 3;
+	//int x = 0;
 
 	if (argc != 2)
 	{
@@ -51,6 +54,9 @@ int main(int argc, char **argv)
 		return (0);
 	init_game_struct(game);
 	read_map(game, argv);
+	//printf("%c\n", game->map[y][x]);
+	//fill_map_copy(game);
+	//printf("%d\n", game->map_copy[y][x]);
 	error_check(game);
 	//check_rectangle(game);
 	game->mlxpointer = mlx_init();
@@ -59,6 +65,6 @@ int main(int argc, char **argv)
 	put_graphics(game);
 	mlx_key_hook(game->winpointer, controls, game);
 	mlx_hook(game->winpointer, 17, 0, (void *)exit, 0);
-	system("leaks so_long");
+	//system("leaks so_long");
 	mlx_loop(game->mlxpointer);
 }
