@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:55:47 by mpeterso          #+#    #+#             */
-/*   Updated: 2023/05/23 12:47:52 by mpeterso         ###   ########.fr       */
+/*   Updated: 2023/05/23 13:31:23 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void    check_extension(char **argv);
 void	*xpm_check(t_game *game, char *str);
 void	copy_map(char **copy, t_game *game);
 void    check_route(char **copy, t_game *game);
-//char	**ft_split(const char *s, char c);
 
 
 
