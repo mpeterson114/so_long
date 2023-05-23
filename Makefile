@@ -18,7 +18,8 @@ SRCS = main.c \
 	gnl/get_next_line.c \
 	gnl/get_next_line_utils.c \
 	utils.c \
-	ft_split.c \
+	route_checker.c \
+	#ft_split.c \
 	
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   errors.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/23 11:55:51 by mpeterso          #+#    #+#             */
+/*   Updated: 2023/05/23 12:48:14 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 static int  horizontal_walls(t_game *game)
@@ -53,7 +65,7 @@ static void count_checker(t_game *game, int height, int width)
         exit_point(game);
     }
     if (game->map[height][width] == 'C')
-        game->collcheck++;
+        game->c_count++;
     else if (game->map[height][width] == 'P')
         game->playercount++;
     else if (game->map[height][width] == 'E')
@@ -76,8 +88,7 @@ void    character_valid(t_game *game)
         }
         height++;
     }
-
-    if (!(game->playercount = 1 && game->collcheck >= 1 && game->exitcount == 1))
+    if (!(game->playercount == 1 && game->c_count >= 1 && game->exitcount == 1))
     {
         printf("\n\033[1;31mError: wrong number of players, exits or collectables\033[0m\n");
         exit_point(game);
@@ -88,6 +99,7 @@ void    error_check(t_game *game)
 {
     int verticalwalls;
     int horizontalwalls;
+    char **copy;
 
     verticalwalls = vertical_walls(game);
     horizontalwalls = horizontal_walls(game);
@@ -97,5 +109,8 @@ void    error_check(t_game *game)
         exit_point(game);
     }
     character_valid(game);
+    copy = (char **)malloc(sizeof(char *) * (game->mapheight));
+    copy_map(copy, game);
+    check_route(copy, game);
 }
 

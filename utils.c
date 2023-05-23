@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/23 11:55:43 by mpeterso          #+#    #+#             */
+/*   Updated: 2023/05/23 11:55:44 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 /*void check_rectangle(t_game *game)
@@ -65,7 +77,7 @@ void	*xpm_check(t_game *game, char *str)
 	return(img);
 }
 
-void	fill_map_copy(t_game *game)
+void	copy_map(char **copy, t_game *game)
 {
 	int	x;
 	int	y;
@@ -73,17 +85,16 @@ void	fill_map_copy(t_game *game)
 	y = 0;
 	while (y < game->mapheight)
 	{
-		game->map_copy[y] = (char *)malloc(sizeof(char) * game->mapwidth);
+		copy[y] = (char *)malloc(sizeof(char) * game->mapwidth);
 		y++;
 	}
-	//printf("%s\n", game->map_copy[y]);
 	y = 0;
 	while (y < game->mapheight)
 	{
 		x = 0;
 		while(x < game->mapwidth)
 		{
-			game->map_copy[y][x] = game->map[y][x];
+			copy[y][x] = game->map[y][x];
 			x++;
 		}
 		y++;

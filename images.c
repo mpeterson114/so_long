@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   images.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/23 11:55:40 by mpeterso          #+#    #+#             */
+/*   Updated: 2023/05/23 11:55:41 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	place_player(t_game *game, int height, int width)
@@ -11,7 +23,7 @@ void	place_player(t_game *game, int height, int width)
 void	place_collectable(t_game *game, int height, int width)
 {
 	mlx_put_image_to_window(game->mlxpointer, game->winpointer, game->collectable, width * 50, height * 50);
-	game->collectablecount++;
+	game->c_remaining++;
 }
 
 void    put_images(t_game *game)
@@ -58,7 +70,7 @@ void	put_graphics(t_game *game)
 {
 	int	height;
 
-	game->collectablecount = 0;
+	game->c_remaining = 0;
 	height = 0;
 	graphics(game, height);
 }

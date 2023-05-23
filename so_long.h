@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/23 11:55:47 by mpeterso          #+#    #+#             */
+/*   Updated: 2023/05/23 12:47:52 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -16,15 +28,18 @@ typedef struct s_game
     int mapheight;
     int mapwidth;
     int playercount;
-    int collcheck;
+    int c_count;
     int exitcount;
+    int player_x;
+    int player_y;
+    int c_check;
+    int e_check;
     int x_axis;
     int y_axis;
-    int counter;
-    int collectablecount;
+    int moves_count;
+    int c_remaining;
 
     char    **map;
-    char    **map_copy;
 
     void    *floor;
     void    *wall;
@@ -66,8 +81,9 @@ char	*ft_strrchr(const char *s, int c);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 void    check_extension(char **argv);
 void	*xpm_check(t_game *game, char *str);
-void	fill_map_copy(t_game *game);
-char	**ft_split(const char *s, char c);
+void	copy_map(char **copy, t_game *game);
+void    check_route(char **copy, t_game *game);
+//char	**ft_split(const char *s, char c);
 
 
 

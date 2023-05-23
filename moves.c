@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/23 11:55:36 by mpeterso          #+#    #+#             */
+/*   Updated: 2023/05/23 12:36:47 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 static int  correct_move(t_game *game, int x, int y)
 {
     if (game->map[y][x] == 'E')
     {
-        if (game->collectablecount != 0)
+        if (game->c_remaining != 0)
             return (0);
         printf("\n\033[1;32mCongratulations, you made it to the fair!\033[0m\n");
         exit_point(game);
@@ -14,15 +26,15 @@ static int  correct_move(t_game *game, int x, int y)
         game->map[y][x] = 'P';
         game->x_axis = x;
         game->y_axis = y;
-        game->counter++;
+        game->moves_count++;
     }
     if (game->map[y][x] == 'C')
     {
         game->map[y][x] = 'P';
         game->x_axis = x;
         game->y_axis = y;
-        game->collectablecount--;
-        game->counter++;
+        game->c_remaining--;
+        game->moves_count++;
     }
     if (game->map[y][x] == 'B')
     {
@@ -60,9 +72,9 @@ static int  key_up_down(t_game *game, int keycode)
             return (0);
         game->map[y - 1][x] = '0'; 
     }
-    printf("Moves taken: %i\n", game->counter);
-    printf("Collectables count: %i\n", game->collectablecount);
-    printf("%d\n", game->collcheck);
+    printf("Moves taken: %i\n", game->moves_count);
+    printf("Collectables left: %i\n", game->c_remaining);
+    //printf("%d\n", game->c_count);
     return (1);
 }
 
@@ -94,20 +106,16 @@ static int  key_left_right(t_game *game, int keycode)
             return (0);
         game->map[y][x - 1] = '0'; 
     }
-    printf("Moves taken: %i\n", game->counter);
-    printf("Collectables count: %i\n", game->collectablecount);
-    printf("%d\n", game->collcheck);
+    printf("Moves taken: %i\n", game->moves_count);
+    printf("Collectables left: %i\n", game->c_remaining);
+    //printf("%d\n", game->c_count);
     return (1);
 }
 
 int controls(int command, t_game *game)
 {
     int check;
-    //int x;
-    //int y;
-
-    //x = game->x_axis;
-    //y = game->y_axis;
+    
     if (command == 53)
         exit_point(game);
     if (command == 13 || command == 126)
