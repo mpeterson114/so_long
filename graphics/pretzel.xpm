@@ -201,7 +201,7 @@ static char *result[] = {
 "=X c #E6A17A",
 "-X c #D9A382",
 ";X c #E7AA85",
-":X c #464646",
+":X c #000000",
 /* pixels */
 ":X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X",
 ":X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X:X",
