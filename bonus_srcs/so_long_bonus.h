@@ -1,26 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 11:55:47 by mpeterso          #+#    #+#             */
-/*   Updated: 2023/05/23 13:31:23 by mpeterso         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-
-# include "minilibx/mlx.h"
-# include "gnl/get_next_line.h"
+# include "../minilibx/mlx.h"
+# include "../gnl/get_next_line.h"
 # include <stdio.h>
 # include <fcntl.h>
 # include <errno.h>
 # include <string.h>
 # include <unistd.h>
-//look up libraries
 
 typedef struct s_game
 {
@@ -83,7 +70,5 @@ void    check_extension(char **argv);
 void	*xpm_check(t_game *game, char *str);
 void	copy_map(char **copy, t_game *game);
 void    check_route(char **copy, t_game *game);
-
-
 
 #endif
