@@ -81,7 +81,6 @@ void    check_route(char **copy, t_game *game)
         free(copy[row++]);
     copy_map(copy, game);
     e_route(copy, game, game->player_x, game->player_y);
-    printf("%d\n", game->e_check);
     row = 0;
     while (row < game->mapheight)
         free(copy[row++]);

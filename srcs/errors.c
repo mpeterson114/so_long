@@ -32,10 +32,7 @@ static int  vertical_walls(t_game *game)
     int y;
 
     x = game->mapwidth;
-    //printf("%d\n", x);
-    //printf("%d\n", game->mapheight);
     y = 0;
-    //printf("%d\n", (int) ft_strlen(game->map[y]) - 1);
     while (y < game->mapheight)
     {
         if (((int) ft_strlen(game->map[y]) - 1) != x)
@@ -43,7 +40,6 @@ static int  vertical_walls(t_game *game)
             printf("\n\033[1;31mError: Map must be a rectangle\033[0m\n");
             exit_point(game);
         }
-        //printf("%d\n", y);
         if (!(game->map[y][0] == '1' && game->map[y][x - 1] == '1'))
             return (0);
         y++;
@@ -60,7 +56,7 @@ static void count_checker(t_game *game, int height, int width)
     game->map[height][width] != 'E' &&
     game->map[height][width] != '\n')
     {
-        printf("\n\033[1;31mError here: %c\033[0m\n", game->map[height][width]);
+        printf("\n\033[1;31mError, invalid character here: %c\033[0m\n", game->map[height][width]);
         exit_point(game);
     }
     if (game->map[height][width] == 'C')

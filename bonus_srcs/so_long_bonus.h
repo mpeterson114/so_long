@@ -44,13 +44,6 @@ typedef enum e_bool
     FALSE = 0,
 }   t_bool;
 
-/*typedef struct s_vector
-{
-    int x;
-    int y;
-}   t_vector;
-*/
-
 int  get_map_width(char *str);
 int	add_line(t_game *game, char *line);
 int	read_map(t_game *game, char **argv);
