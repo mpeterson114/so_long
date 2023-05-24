@@ -50,11 +50,9 @@ int	add_line(t_game *game, char *line)
 int	read_map(t_game *game, char **argv)
 {
 	char *mapreader;
-	//int y = 0;
 
 	check_extension(argv);
 	game->fd = open(argv[1], O_RDONLY);
-	//printf("%d\n", game->fd);
 	if (game->fd < 0)
 	{
 		printf("\n\033[1;31mError, unable to open map\033[0m\n");
@@ -63,7 +61,6 @@ int	read_map(t_game *game, char **argv)
 	while (TRUE)
 	{
 		mapreader = get_next_line(game->fd);
-		//game->map_copy = ft_split(mapreader, '\n');
 		if (!(add_line(game, mapreader)))
 			break ;
 	}
