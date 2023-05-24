@@ -62,7 +62,6 @@ static int  key_up_down(t_game *game, int keycode)
     }
     printf("Moves taken: %i\n", game->moves_count);
     printf("Collectables left: %i\n", game->c_remaining);
-    //printf("%d\n", game->c_count);
     return (1);
 }
 
@@ -96,7 +95,6 @@ static int  key_left_right(t_game *game, int keycode)
     }
     printf("Moves taken: %i\n", game->moves_count);
     printf("Collectables left: %i\n", game->c_remaining);
-    //printf("%d\n", game->c_count);
     return (1);
 }
 
