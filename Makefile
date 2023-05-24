@@ -61,9 +61,9 @@ clean:
 		@echo "\n$(CYAN) Objects cleaned successfully"
 
 fclean: 
-		make clean -C $(MINILIBX)
-		$(REMOVE) $(NAME) $(NAME_BONUS)
-		$(REMOVE) $(OBJS) $(OBJS_BONUS)
+		@make clean -C $(MINILIBX) --silent
+		@$(REMOVE) $(NAME) $(NAME_BONUS)
+		@$(REMOVE) $(OBJS) $(OBJS_BONUS)
 		@echo "\n$(ORANGE)Objects and executables deleted successfully"
 
 re:	fclean all
