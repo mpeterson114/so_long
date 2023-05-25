@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:55:40 by mpeterso          #+#    #+#             */
-/*   Updated: 2023/05/23 11:55:41 by mpeterso         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:03:58 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ void	place_player(t_game *game, int height, int width)
 
 void	place_collectable(t_game *game, int height, int width)
 {
-	mlx_put_image_to_window(game->mlxpointer, game->winpointer, game->collectable, width * 50, height * 50);
+	mlx_put_image_to_window(game->mlxpointer, game->winpointer,
+		game->collectable, width * 50, height * 50);
 	game->c_remaining++;
 }
 
-void    put_images(t_game *game)
+void	put_images(t_game *game)
 {
 	game->player = xpm_check(game, "graphics/foodtruck.xpm");
 	game->collectable = xpm_check(game, "graphics/pretzel.xpm");
@@ -39,7 +40,7 @@ void	graphics(t_game *game, int height)
 {
 	int	width;
 
-	while(height < game->mapheight)
+	while (height < game->mapheight)
 	{
 		width = 0;
 		while (game->map[height][width])
@@ -49,11 +50,14 @@ void	graphics(t_game *game, int height)
 			else if (game->map[height][width] == 'C')
 				place_collectable(game, height, width);
 			else if (game->map[height][width] == '1')
-				mlx_put_image_to_window(game->mlxpointer, game->winpointer, game->wall, width * 50, height * 50);
+				mlx_put_image_to_window(game->mlxpointer, game->winpointer,
+					game->wall, width * 50, height * 50);
 			else if (game->map[height][width] == 'E')
-				mlx_put_image_to_window(game->mlxpointer, game->winpointer, game->exit, width * 50, height * 50);
+				mlx_put_image_to_window(game->mlxpointer, game->winpointer,
+					game->exit, width * 50, height * 50);
 			else if (game->map[height][width] == '0')
-				mlx_put_image_to_window(game->mlxpointer, game->winpointer, game->floor, width * 50, height * 50);
+				mlx_put_image_to_window(game->mlxpointer, game->winpointer,
+					game->floor, width * 50, height * 50);
 			width++;
 		}
 		height++;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/25 11:45:53 by mpeterso          #+#    #+#             */
+/*   Updated: 2023/05/25 12:56:20 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long_bonus.h"
 
 void	init_game_struct(t_game *game)
@@ -46,9 +58,9 @@ void	leaks(void)
 	system("leaks so_long");
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_game *game;
+	t_game	*game;
 
 	atexit(leaks);
 	if (argc != 2)
@@ -58,12 +70,13 @@ int main(int argc, char **argv)
 	}
 	game = (t_game *)malloc(sizeof(t_game));
 	if (game == NULL)
-		return(0);
+		return (0);
 	init_game_struct(game);
 	read_map(game, argv);
 	error_check(game);
 	game->mlxpointer = mlx_init();
-	game->winpointer = mlx_new_window(game->mlxpointer, (game->mapwidth * 50), (game->mapheight * 50), "so_long");
+	game->winpointer = mlx_new_window(game->mlxpointer, (game->mapwidth * 50),
+			(game->mapheight * 50), "so_long");
 	put_images(game);
 	put_graphics(game);
 	mlx_key_hook(game->winpointer, controls, game);

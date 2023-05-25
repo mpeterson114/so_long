@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/25 11:46:08 by mpeterso          #+#    #+#             */
+/*   Updated: 2023/05/25 12:24:46 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long_bonus.h"
 
 char	*ft_strrchr(const char *s, int c)
@@ -32,8 +44,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 void	*xpm_check(t_game *game, char *str)
 {
-	void *img;
-	int pix;
+	void	*img;
+	int		pix;
 
 	pix = 50;
 	img = mlx_xpm_file_to_image(game->mlxpointer, str, &pix, &pix);
@@ -42,7 +54,7 @@ void	*xpm_check(t_game *game, char *str)
 		printf("\n\033[1;31mError: .xpm issue\033[0m\n");
 		exit_point(game);
 	}
-	return(img);
+	return (img);
 }
 
 void	copy_map(char **copy, t_game *game)
@@ -60,7 +72,7 @@ void	copy_map(char **copy, t_game *game)
 	while (y < game->mapheight)
 	{
 		x = 0;
-		while(x < game->mapwidth)
+		while (x < game->mapwidth)
 		{
 			copy[y][x] = game->map[y][x];
 			x++;

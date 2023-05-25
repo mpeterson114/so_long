@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:19:19 by mpeterso          #+#    #+#             */
-/*   Updated: 2023/02/12 14:18:42 by mpeterso         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:20:57 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,3 @@ char	*get_next_line(int fd)
 	str = ft_after_line(str);
 	return (line);
 }
-
