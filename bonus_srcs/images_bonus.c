@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   images_bonus.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/25 11:45:51 by mpeterso          #+#    #+#             */
+/*   Updated: 2023/05/25 13:36:32 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long_bonus.h"
 
 void	place_player(t_game *game, int height, int width)
@@ -10,11 +22,12 @@ void	place_player(t_game *game, int height, int width)
 
 void	place_collectable(t_game *game, int height, int width)
 {
-	mlx_put_image_to_window(game->mlxpointer, game->winpointer, game->collectable, width * 50, height * 50);
+	mlx_put_image_to_window(game->mlxpointer, game->winpointer,
+		game->collectable, width * 50, height * 50);
 	game->c_remaining++;
 }
 
-void    put_images(t_game *game)
+void	put_images(t_game *game)
 {
 	game->player = xpm_check(game, "graphics/foodtruck.xpm");
 	game->collectable = xpm_check(game, "graphics/pretzel.xpm");
@@ -24,14 +37,9 @@ void    put_images(t_game *game)
 	game->floor = xpm_check(game, "graphics/floorblank.xpm");
 }
 
-void	graphics(t_game *game, int height)
+void	graphics(t_game *game, int height, int width)
 {
-	int	width;
-	//int height;
-
-	//game->collectablecount = 0;
-	//height = 0;
-	while(height < game->mapheight)
+	while (height < game->mapheight)
 	{
 		width = 0;
 		while (game->map[height][width])
@@ -41,13 +49,17 @@ void	graphics(t_game *game, int height)
 			else if (game->map[height][width] == 'C')
 				place_collectable(game, height, width);
 			else if (game->map[height][width] == 'B')
-				mlx_put_image_to_window(game->mlxpointer, game->winpointer, game->blocker, width * 50, height * 50);
+				mlx_put_image_to_window(game->mlxpointer, game->winpointer,
+					game->blocker, width * 50, height * 50);
 			else if (game->map[height][width] == '1')
-				mlx_put_image_to_window(game->mlxpointer, game->winpointer, game->wall, width * 50, height * 50);
+				mlx_put_image_to_window(game->mlxpointer, game->winpointer,
+					game->wall, width * 50, height * 50);
 			else if (game->map[height][width] == 'E')
-				mlx_put_image_to_window(game->mlxpointer, game->winpointer, game->exit, width * 50, height * 50);
+				mlx_put_image_to_window(game->mlxpointer, game->winpointer,
+					game->exit, width * 50, height * 50);
 			else if (game->map[height][width] == '0')
-				mlx_put_image_to_window(game->mlxpointer, game->winpointer, game->floor, width * 50, height * 50);
+				mlx_put_image_to_window(game->mlxpointer, game->winpointer,
+					game->floor, width * 50, height * 50);
 			width++;
 		}
 		height++;
@@ -57,8 +69,10 @@ void	graphics(t_game *game, int height)
 void	put_graphics(t_game *game)
 {
 	int	height;
+	int	width;
 
 	game->c_remaining = 0;
 	height = 0;
-	graphics(game, height);
+	width = 0;
+	graphics(game, height, width);
 }

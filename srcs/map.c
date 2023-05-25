@@ -1,20 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/25 11:46:41 by mpeterso          #+#    #+#             */
+/*   Updated: 2023/05/25 12:05:14 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-void    check_extension(char **argv)
+void	check_extension(char **argv)
 {
-    char *file_ext;
+	char	*file_ext;
 
-    file_ext = ft_strrchr(argv[1], '.');
-    if (!file_ext || ft_strncmp(file_ext + 1, "ber", ft_strlen(argv[1])) != 0)
-    {
-        printf("\n\033[1;31mError: File type must be '.ber'\033[0m\n");
-        exit(1);
-    }
+	file_ext = ft_strrchr(argv[1], '.');
+	if (!file_ext || ft_strncmp(file_ext + 1, "ber", ft_strlen(argv[1])) != 0)
+	{
+		printf("\n\033[1;31mError: File type must be '.ber'\033[0m\n");
+		exit(1);
+	}
 }
 
-int  get_map_width(char *str)
+int	get_map_width(char *str)
 {
-    int	width;
+	int	width;
 
 	width = 0;
 	while (str[width])
@@ -26,8 +38,8 @@ int  get_map_width(char *str)
 
 int	add_line(t_game *game, char *line)
 {
-	char **temp;
-	int	i;
+	char	**temp;
+	int		i;
 
 	if (!line)
 		return (0);
@@ -49,7 +61,7 @@ int	add_line(t_game *game, char *line)
 
 int	read_map(t_game *game, char **argv)
 {
-	char *mapreader;
+	char	*mapreader;
 
 	check_extension(argv);
 	game->fd = open(argv[1], O_RDONLY);
