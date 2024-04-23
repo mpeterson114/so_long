@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:55:33 by mpeterso          #+#    #+#             */
-/*   Updated: 2023/05/25 11:49:27 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/04/23 13:43:29 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,10 @@ int	exit_point(t_game *game)
 	exit (0);
 }
 
-void	leaks(void)
-{
-	system("leaks so_long");
-}
-
 int	main(int argc, char **argv)
 {
 	t_game	*game;
 
-	atexit(leaks);
 	if (argc != 2)
 	{
 		printf("\n\033[1;31mError: Expected one argument\033[0m\n");
